@@ -210,6 +210,9 @@ spec:
             timeoutSeconds: 30
             failureThreshold: 10
             periodSeconds: 10
+{{- with .Values.extraContainers }}
+{{ tpl . $ | indent 8 }}
+{{- end }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}

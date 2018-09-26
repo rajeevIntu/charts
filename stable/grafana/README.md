@@ -39,6 +39,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `image.pullPolicy`              | Image pull policy                             | `IfNotPresent`                                          |
 | `service.type`                  | Kubernetes service type                       | `ClusterIP`                                             |
 | `service.port`                  | Kubernetes port where service is exposed      | `80`                                                  |
+| `service.authProxyPort`         | port to use when using sidecar authProxy      | `""`                                                 |
 | `service.annotations`           | Service annotations                           | `{}`                                                    |
 | `service.labels`                | Custom labels                                 | `{}`                                                    |
 | `ingress.enabled`               | Enables Ingress                               | `false`                                                 |
@@ -61,6 +62,8 @@ The command removes all the Kubernetes components associated with the chart and 
 | `envFromSecret`                 | Name of a Kubenretes secret (must be manually created in the same namespace) containing values to be added to the environment | `""` |
 | `extraSecretMounts`             | Additional grafana server secret mounts       | `[]`                                                    |
 | `plugins`                       | Plugins to be loaded along with Grafana       | `[]`                                                    |
+| `authProxyEnabled`              | enables authproxy. Create container in extracontainers   | `false`                                      |
+| `extraContainers`               | Sidecar containers to add to the grafana pod  | `{}`                                                    |
 | `datasources`                   | Configure grafana datasources                 | `{}`                                                    |
 | `dashboardProviders`            | Configure grafana dashboard providers         | `{}`                                                    |
 | `dashboards`                    | Dashboards to import                          | `{}`                                                    |

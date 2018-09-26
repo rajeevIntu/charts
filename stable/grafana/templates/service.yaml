@@ -40,7 +40,11 @@ spec:
     - name: service
       port: {{ .Values.service.port }}
       protocol: TCP
+{{- if not .Values.authProxyEnabled }}
       targetPort: 3000
+{{- else }}
+      targetPort: {{ .Values.service.authProxyPort }}
+{{- end }}
 {{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
       nodePort: {{.Values.service.nodePort}}
 {{ end }}
